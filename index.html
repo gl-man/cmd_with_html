@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Windows Classic
+    </title>
+    <meta
+      content="Medi-Scan LCC - Hi-Def Ultrasound Imaging"
+      name="description"
+    />
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <style type="text/css">
+  </style>
+  <body>
+    <div class="progress-panel">
+      <div class="progress-show">
+        <div class="progress-bar">
+          <p class="percent-text"></p>
+        </div>
+      </div>
+    </div>
+    <div class="hailstate-panel" style="display: none; z-index: 999;">
+      <p class="hailstate-text">
+      </p>
+      <p class="hailstate-caret">_</p>
+    </div>
+    <div class="socialprint-panel" style="display: none; z-index: 999;">
+      <div class="socialprint-console">
+        <p class="socialprint-text">
+        </p>
+        <p class="socialprint-caret">_</p>
+      </div>
+      <p class="socialprint-source"></p>
+    </div>
+    <div class="question-panel" style="display: none; z-index: 999;">
+      <div class="question-console">
+        <p class="question-text">
+        </p>
+        <p class="question-caret">_</p>
+      </div>
+      <div class="yes-no" style="display: none;">
+        <p class="answer" id="yes">
+            [Yes]
+        </p>
+        <p class="answer" id="no">
+            [No]
+        </p>
+      </div>
+    </div>
+    <div class="contact-panel" style="display: none; z-index: 999;">
+      <p class="contact-text" onclick="contactClick()">
+      </p>
+      <p class="contact-caret">_</p>
+    </div>
+    <div class="hover-panel" style="display: none; z-index: 999;">
+      <p class="hover-text">
+      </p>
+      <p class="hover-caret">_</p>
+      <div class="dropdown-content" style="display: none;">
+        <a href="https://twitter.com/?lang=en" target="_blank"><img class="img_link" src="assets/image/twitter.png" width="32" alt="Twitter" /></a>
+        <a href="https://www.youtube.com/" target="_blank"><img class="img_link" src="assets/image/yt.png" width="32" alt="Facebook" /></a>
+        <a href="https://www.instagram.com/" target="_blank"><img class="img_link" src="assets/image/instagram.png" width="32" alt="Instagram" /></a>
+      </div>
+    </div>
+    <div class="computer-question" style="display: none;">
+      <p class="yes-show">[Yes]</p>
+      <p class="no-show">[No]</p>
+    </div>
+    <div class="computer-container" style="display: none;">
+      <p class="middle-show" style="display: none;">:)</p>
+      <img
+        class="computer-img"
+        src="assets/image/mycomputer.png"
+        style="display: none;"
+      />
+    </div>
+    <div class="desktop" style="display: none;">
+      <img class="desktop-icons" src="assets/image/desktop_icons.png" />
+      <div class="taskbar">
+        <img class="taskbar-icons" src="assets/image/taskbar.png" />
+      </div>
+    </div>
+    <div id="main-body" class="main-body"></div>
+    <span class="blinker" style="display: none;">_</span>
+  </body>
+
+  <script src="assets/js/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</html>

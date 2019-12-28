@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "custom-font";
+  src: url('../font/temp.ttf') format('truetype');
+}
+
+body {
+  font-family: custom-font !important;
+  background-color: rgb(36, 128, 129);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+div.main-body {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.progress-panel {
+  width: 250px;
+  height: 70px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  border-right: 2px solid #393939;
+  border-bottom: 2px solid #393939;
+  border-radius: 0;
+  background: #c0c0c0;
+  transform: translate(-50%, -50%);
+}
+
+.progress-show {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  border-top: 1px solid #08080e;
+  border-left: 1px solid #08080e;
+  border-right: 1px solid #fcfcfc;
+  border-bottom: 1px solid #fcfcfc;
+  border-radius: 0;
+  background: #c0c0c0;
+  width: 200px;
+  height: 25px;
+}
+
+.progress-bar {
+  width: 10%;
+  background-color: rgb(3, 5, 134);
+  height: 25px;
+}
+
+.percent-text {
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.text-area-container {
+  position: absolute;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.text-area-container > textarea {
+  background: black;
+  color: white;
+  z-index: 1;
+  overflow: hidden;
+  border: none;
+  width: 1rem;
+  margin: 0;
+  resize: none;
+  outline: none;
+  caret-color: transparent;
+  padding: 3px;
+  font-size: 15px;
+  /*color: #2795EE;*/
+}
+
+.text-area-container > textarea:focus {
+  outline: none;
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: #f1f1f1;
+  margin-top: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 12px;
+  text-decoration: none;
+  float: left;
+}
+
+.hover-panel:hover .dropdown-content {
+  left: 50%;
+  transform: translate(-50%, 0%);
+  display: flex !important;
+  top: 50%;
+  background-color: transparent;
+}
+
+.img_link {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*.dropdown-content a:hover {
+  background-color: white;
+  color: black !important;
+}*/
+
+.yes-no {
+  z-index: 3;
+}
+
+.yes-no > .answer {
+  font-family: custom-font !important;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none !important;
+}
+
+#yes {
+  position: absolute;
+  right: 25%;
+}
+
+.answer:hover {
+  background-color: white;
+  color: black;
+}
+
+#no {
+  position: absolute;
+  right: 3%;
+}
+
+.hailstate-panel {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  display: flex;
+}
+
+.hailstate-text {
+  color: white;
+}
+
+.hailstate-caret {
+  color: white;
+}
+
+.socialprint-panel {
+  left: 10%;
+  top: 10%;
+  position: absolute;
+}
+
+.socialprint-console {
+  display: flex;
+}
+
+.socialprint-text {
+  color: white;
+}
+
+.socialprint-source {
+  color: white;
+  text-align: left;
+  margin-left: 30%;
+}
+
+.socialprint-caret {
+  color: white;
+}
+
+.question-panel {
+  left: 50%;
+  top: 30%;
+  position: absolute;
+}
+
+.question-console {
+  display: flex;
+}
+
+.question-text {
+  color: white;
+}
+
+.question-caret {
+  color: white;
+}
+
+.contact-panel {
+  left: 20%;
+  top: 65%;
+  position: absolute;
+  display: flex;
+}
+
+.contact-text {
+  color: white;
+  cursor: pointer;
+}
+
+.contact-caret {
+  color: white;
+}
+
+.hover-panel {
+  left: 65%;
+  top: 75%;
+  position: absolute;
+  display: flex;
+}
+
+.hover-text {
+  color: white;
+  cursor: pointer;
+}
+
+.hover-caret {
+  color: white;
+}
+
+.middle-show,
+.computer-img {
+  color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  cursor: pointer;
+}
+
+.computer-question {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.yes-show {
+  color: white;
+  margin: 20px;
+}
+
+.no-show {
+  color: white;
+  margin: 20px;
+}
+
+.computer-img {
+  width: 80px;
+  height: 80px;
+}
+
+.desktop-icons {
+  width: 100px;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  overflow-x: hidden;
+}
+
+.taskbar-icons {
+  height: 30px;
+}
+
+textarea {
+  font-family: custom-font !important;
+}
