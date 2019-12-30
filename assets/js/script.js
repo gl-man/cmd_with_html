@@ -11,7 +11,9 @@ var width = 0,
     socialprint_text = "coca-cola<br />nvidia<br />tespa<br />talos energy<br />twitch<br />ibuypower",
     question_source = 'choice=input("Would you like to discover something amazing?")',
     contact_source = ".onclick: contact",
-    hover_source = ".onhover: print(socialmedia.txt)";
+    hover_source = ".onhover: print(socialmedia.txt)",
+    hailstate_errorflag = 0,
+    delay_timer;
 
 
 var timerID;
@@ -111,6 +113,7 @@ function showComputer(e) {
 }
 
 function showComputerYes(e) {
+    clearInterval(console_timer);
     $(".computer-question").css("display", "none");
     next_flag = 2;
     $("#main-body").empty().css('cursor', 'normal');
@@ -122,9 +125,11 @@ function showComputerYes(e) {
     $(".contact-panel").css("display", "none");
     $(".hover-panel").css("display", "none");
     $(".computer-container > .middle-show").css("display", "block");
+    $(".computer-container > .middle-thanks").css("display", "block");
     $(".computer-container > .computer-img").css("display", "none");
     setTimeout(() => {
         $(".computer-container > .middle-show").css("display", "none");
+        $(".computer-container > .middle-thanks").css("display", "none");
         $(".computer-container > .computer-img").css("display", "block");
     }, 1500);
 }
@@ -137,11 +142,16 @@ function gotoDesktop(e) {
 }
 
 function showConsole(e) {
-    clearInterval();
-    $(".progress-panel").remove();
-    $("body").css("background-color", "black");
-    $(".progress-panel").hide();
+    clearInterval(objInterval);
+    clearTimeout(delay_timer);
+    consoleText_counter = 0;
     $(".hailstate-panel").show();
+
+    $(".socialprint-panel").show();
+    $(".question-panel").show();
+    $(".contact-panel").show();
+    $(".hover-panel").show();
+
     console_timer = setInterval(function() {
         consoleText_counter++;
         if (consoleText_counter <= 15)
@@ -152,16 +162,120 @@ function showConsole(e) {
             else
                 $(".hailstate-caret").css("color", "white");
         }
-        else
+        if (consoleText_counter == 16)
         {
             $(".hailstate-caret").css("color", "transparent");
-            clearInterval(console_timer);
-            showSocialprint();
         }
-    }, 100);
+        if (consoleText_counter >= 16 && consoleText_counter <=21)
+        {
+                $(".hailstate-panel").css("display", "none");
+        }
+        else {
+                $(".hailstate-panel").css("display", "flex");
+        }
+        if (consoleText_counter <= 17)
+        {
+            $(".contact-text").text(contact_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".contact-caret").css("color", "transparent");
+            else
+                $(".contact-caret").css("color", "white");
+        }
+        if (consoleText_counter == 18)
+        {
+            $(".contact-caret").css("color", "transparent");
+        }
+        if (consoleText_counter >= 19 && consoleText_counter <=24)
+        {
+            $(".contact-text").css("display", "none");
+        }
+        else {
+            $(".contact-text").css("display", "block");
+        }
+        if (consoleText_counter <= 19)
+        {
+            $(".socialprint-text").text(socialprint_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".socialprint-caret").css("color", "transparent");
+            else
+                $(".socialprint-caret").css("color", "white");
+        }
+        if (consoleText_counter == 20) 
+        {
+            $(".socialprint-caret").css("color", "transparent");
+            $(".socialprint-source").html(socialprint_text);
+        }
+        if (consoleText_counter >= 21 && consoleText_counter <=26)
+        {
+            $(".socialprint-text").css("display", "none");
+            $(".socialprint-source").css("display", "none");
+        }
+        else {
+            $(".socialprint-text").css("display", "block");
+            $(".socialprint-source").css("display", "block");
+        }        
+        if (consoleText_counter <= 32)
+        {
+            $(".hover-text").text(hover_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".hover-caret").css("color", "transparent");
+            else
+                $(".hover-caret").css("color", "white");
+        }
+        if (consoleText_counter == 33)
+        {
+            $(".hover-caret").css("color", "transparent");
+        }
+        if (consoleText_counter >= 34 && consoleText_counter <=39)
+        {
+            $(".hover-text").css("display", "none");
+        }
+        else {
+            $(".hover-text").css("display", "block");
+        }  
+        if (consoleText_counter <= 61)
+        {
+            $(".question-text").text(question_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".question-caret").css("color", "transparent");
+            else
+                $(".question-caret").css("color", "white");
+        }
+        if (consoleText_counter == 62)
+        {
+            $(".question-caret").css("color", "transparent");
+            $(".yes-no").show();
+            $(".yes-no").css("display", "flex");
+        }
+        if (consoleText_counter >= 63 && consoleText_counter <=68)
+        {
+            $(".question-panel").css("display", "none");
+        }
+        else {
+            $(".question-panel").css("display", "block");
+        } 
+    }, 200);
+    // console_timer = setInterval(function() {
+    //     consoleText_counter++;
+    //     if (consoleText_counter <= 15)
+    //     {
+    //         $(".hailstate-text").text(hailtext_source.substring(0, consoleText_counter));
+    //         if (consoleText_counter % 2)
+    //             $(".hailstate-caret").css("color", "transparent");
+    //         else
+    //             $(".hailstate-caret").css("color", "white");
+    //     }
+    //     else
+    //     {
+    //         $(".hailstate-caret").css("color", "transparent");
+    //         clearInterval(console_timer);
+    //         showSocialprint();
+    //     }
+    // }, 100);
 }
 
 function showSocialprint() {
+    clearInterval(objInterval);
     $(".socialprint-panel").show();
     consoleText_counter = 0;
     console_timer = setInterval(function() {
@@ -259,22 +373,49 @@ function showDropdown() {
     //$(".dropdown-content").css("display", "block");
 }
 
+function delay_fuction() {
+    $('.error-dialog-panel').remove();
+    $(".progress-panel").remove();
+    showConsole();
+}
+
 function intervalFunc() {
-    width += 1;
+    if (width < 198)
+    {
+        width++;   
+    }
+    else {
+        hailstate_errorflag++;
+        if (hailstate_errorflag == 5 && width < 200) {
+            width++;
+            hailstate_errorflag = 0;
+        }
+    }
     $(".progress-panel .progress-bar").css("width", width + "px");
     $(".progress-panel .percent-text").text(parseInt(width / 2) + "%");
-    if (width == 200) {
+    if (width == 200 && hailstate_errorflag == 0) {
+        $("body").css("background-color", "black");
+        $('.error-dialog-panel').remove();
+        $(".progress-panel").remove();
         next_flag = 1;
-        showConsole();
+        delay_timer =  setTimeout(delay_fuction, 2500);
     }
-    if (width >= 190 && width <= 200) {
+    if (width >= 198 && width < 200) {
         clearInterval(objInterval);
-        objInterval = setInterval(intervalFunc, 100);
-        for (var i = 1; i <= 5; i++) {
-            counter++;
-            if (counter < 50) {
-                var newProgressPanel = `<div class="progress-panel" style="left: ${50 - counter}%; top: ${50 + counter}%"><div class="progress-show"><div class="progress-bar" style="width: ${width}px;"><p class="percent-text">${parseInt(width / 2) + "%"}</p></div></div></div>`;
-                $(newProgressPanel).appendTo("#main-body");
+        if (width == 198 && hailstate_errorflag == 0)
+            objInterval = setInterval(intervalFunc, 1500);
+        else
+        {
+            $(".error-dialog-panel").css("display", "block");
+            objInterval = setInterval(intervalFunc, 100);
+            for (var i = 1; i <= 5; i++) {
+                counter++;
+                if (counter < 50) {
+                    var newProgressPanel = `<div class="progress-panel" style="left: ${50 - counter}%; top: ${50 + counter}%"><div class="progress-show"><div class="progress-bar" style="width: ${width}px;"><p class="percent-text">${parseInt(width / 2) + "%"}</p></div></div></div>`;
+                    var error_dialog = `<div class="error-dialog-panel" style="left:${Math.random() * 100}%; top: ${Math.random() * 100}%;"><div class="error-dialog-header"><span class="error-dialog-header-text">Be a great</span><button class="error-dialog-exit" disabled>X</button></div><div class="error-dialog-body"><p class="error-dialog-desc">Error detected.</p><div><button class="error-dialog-button"><span class="error-dialog-button-text">Cancel</span></button></div></div></div>`;
+                    $(newProgressPanel).appendTo("#main-body");
+                    $(error_dialog).appendTo("#main-body");
+                }
             }
         }
     }
