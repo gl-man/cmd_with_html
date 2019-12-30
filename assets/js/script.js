@@ -147,11 +147,6 @@ function showConsole(e) {
     consoleText_counter = 0;
     $(".hailstate-panel").show();
 
-    $(".socialprint-panel").show();
-    $(".question-panel").show();
-    $(".contact-panel").show();
-    $(".hover-panel").show();
-
     console_timer = setInterval(function() {
         consoleText_counter++;
         if (consoleText_counter <= 15)
@@ -166,94 +161,17 @@ function showConsole(e) {
         {
             $(".hailstate-caret").css("color", "transparent");
         }
-        if (consoleText_counter >= 16 && consoleText_counter <=21)
+        if (consoleText_counter >= 16 && consoleText_counter <= 21)
         {
                 $(".hailstate-panel").css("display", "none");
         }
         else {
                 $(".hailstate-panel").css("display", "flex");
         }
-        if (consoleText_counter <= 17)
+        if (consoleText_counter == 22)
         {
-            $(".contact-text").text(contact_source.substring(0, consoleText_counter));
-            if (consoleText_counter % 2)
-                $(".contact-caret").css("color", "transparent");
-            else
-                $(".contact-caret").css("color", "white");
+            showOthers();
         }
-        if (consoleText_counter == 18)
-        {
-            $(".contact-caret").css("color", "transparent");
-        }
-        if (consoleText_counter >= 19 && consoleText_counter <=24)
-        {
-            $(".contact-text").css("display", "none");
-        }
-        else {
-            $(".contact-text").css("display", "block");
-        }
-        if (consoleText_counter <= 19)
-        {
-            $(".socialprint-text").text(socialprint_source.substring(0, consoleText_counter));
-            if (consoleText_counter % 2)
-                $(".socialprint-caret").css("color", "transparent");
-            else
-                $(".socialprint-caret").css("color", "white");
-        }
-        if (consoleText_counter == 20) 
-        {
-            $(".socialprint-caret").css("color", "transparent");
-            $(".socialprint-source").html(socialprint_text);
-        }
-        if (consoleText_counter >= 21 && consoleText_counter <=26)
-        {
-            $(".socialprint-text").css("display", "none");
-            $(".socialprint-source").css("display", "none");
-        }
-        else {
-            $(".socialprint-text").css("display", "block");
-            $(".socialprint-source").css("display", "block");
-        }        
-        if (consoleText_counter <= 32)
-        {
-            $(".hover-text").text(hover_source.substring(0, consoleText_counter));
-            if (consoleText_counter % 2)
-                $(".hover-caret").css("color", "transparent");
-            else
-                $(".hover-caret").css("color", "white");
-        }
-        if (consoleText_counter == 33)
-        {
-            $(".hover-caret").css("color", "transparent");
-        }
-        if (consoleText_counter >= 34 && consoleText_counter <=39)
-        {
-            $(".hover-text").css("display", "none");
-        }
-        else {
-            $(".hover-text").css("display", "block");
-        }  
-        if (consoleText_counter <= 61)
-        {
-            $(".question-text").text(question_source.substring(0, consoleText_counter));
-            if (consoleText_counter % 2)
-                $(".question-caret").css("color", "transparent");
-            else
-                $(".question-caret").css("color", "white");
-        }
-        if (consoleText_counter == 62)
-        {
-            $(".question-caret").css("color", "transparent");
-            $(".yes-no").show();
-            $(".yes-no").css("display", "flex");
-        }
-        if (consoleText_counter >= 63 && consoleText_counter <=68)
-        {
-            $(".question-panel").css("display", "none");
-        }
-        else {
-            $(".question-panel").css("display", "block");
-        } 
     }, 200);
     // console_timer = setInterval(function() {
     //     consoleText_counter++;
@@ -272,6 +190,101 @@ function showConsole(e) {
     //         showSocialprint();
     //     }
     // }, 100);
+}
+
+function showOthers() {
+    clearInterval(console_timer);
+    consoleText_counter = 0;
+
+    $(".socialprint-panel").show();
+    $(".question-panel").show();
+    $(".contact-panel").show();
+    $(".hover-panel").show();
+
+    console_timer = setInterval(function() {
+        consoleText_counter++;
+        if (consoleText_counter <= 17)
+        {
+            $(".contact-text").text(contact_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".contact-caret").css("color", "transparent");
+            else
+                $(".contact-caret").css("color", "white");
+        }
+        if (consoleText_counter == 18)
+        {
+            $(".contact-caret").css("color", "transparent");
+        }
+        // if (consoleText_counter >= 19 && consoleText_counter <=24)
+        // {
+        //     $(".contact-text").css("display", "none");
+        // }
+        // else {
+        //     $(".contact-text").css("display", "block");
+        // }
+        if (consoleText_counter <= 19)
+        {
+            $(".socialprint-text").text(socialprint_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".socialprint-caret").css("color", "transparent");
+            else
+                $(".socialprint-caret").css("color", "white");
+        }
+        if (consoleText_counter == 20) 
+        {
+            $(".socialprint-caret").css("color", "transparent");
+            $(".socialprint-source").html(socialprint_text);
+        }
+        // if (consoleText_counter >= 21 && consoleText_counter <=26)
+        // {
+        //     $(".socialprint-text").css("display", "none");
+        //     $(".socialprint-source").css("display", "none");
+        // }
+        // else {
+        //     $(".socialprint-text").css("display", "block");
+        //     $(".socialprint-source").css("display", "block");
+        // }        
+        if (consoleText_counter <= 32)
+        {
+            $(".hover-text").text(hover_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".hover-caret").css("color", "transparent");
+            else
+                $(".hover-caret").css("color", "white");
+        }
+        if (consoleText_counter == 33)
+        {
+            $(".hover-caret").css("color", "transparent");
+        }
+        // if (consoleText_counter >= 34 && consoleText_counter <=39)
+        // {
+        //     $(".hover-text").css("display", "none");
+        // }
+        // else {
+        //     $(".hover-text").css("display", "block");
+        // }  
+        if (consoleText_counter <= 61)
+        {
+            $(".question-text").text(question_source.substring(0, consoleText_counter));
+            if (consoleText_counter % 2)
+                $(".question-caret").css("color", "transparent");
+            else
+                $(".question-caret").css("color", "white");
+        }
+        if (consoleText_counter == 62)
+        {
+            $(".question-caret").css("color", "transparent");
+            $(".yes-no").show();
+            $(".yes-no").css("display", "flex");
+        }
+        // if (consoleText_counter >= 63 && consoleText_counter <=68)
+        // {
+        //     $(".question-panel").css("display", "none");
+        // }
+        // else {
+        //     $(".question-panel").css("display", "block");
+        // } 
+    }, 200);
 }
 
 function showSocialprint() {
