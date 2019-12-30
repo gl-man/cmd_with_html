@@ -172,7 +172,7 @@ function showConsole(e) {
         {
             showOthers();
         }
-    }, 200);
+    }, 130);
     // console_timer = setInterval(function() {
     //     consoleText_counter++;
     //     if (consoleText_counter <= 15)
@@ -284,7 +284,7 @@ function showOthers() {
         // else {
         //     $(".question-panel").css("display", "block");
         // } 
-    }, 200);
+    }, 130);
 }
 
 function showSocialprint() {
@@ -425,7 +425,29 @@ function intervalFunc() {
                 counter++;
                 if (counter < 50) {
                     var newProgressPanel = `<div class="progress-panel" style="left: ${50 - counter}%; top: ${50 + counter}%"><div class="progress-show"><div class="progress-bar" style="width: ${width}px;"><p class="percent-text">${parseInt(width / 2) + "%"}</p></div></div></div>`;
-                    var error_dialog = `<div class="error-dialog-panel" style="left:${Math.random() * 100}%; top: ${Math.random() * 100}%;"><div class="error-dialog-header"><span class="error-dialog-header-text">Be a great</span><button class="error-dialog-exit" disabled>X</button></div><div class="error-dialog-body"><p class="error-dialog-desc">Error detected.</p><div><button class="error-dialog-button"><span class="error-dialog-button-text">Cancel</span></button></div></div></div>`;
+                    var error_text_header, error_text_desc;
+                    var flag = parseInt(Math.random() * 10) % 5;
+                    if (flag == 0) {
+                        error_text_header = "hello.";
+                        error_text_desc = "hello.";
+                    }
+                    else if (flag == 1) {
+                        error_text_header = "nice to meet you.";
+                        error_text_desc = "nice to meet you.";
+                    }
+                    else if (flag == 2) {
+                        error_text_header = "thank you for saving us.";
+                        error_text_desc = "thank you for saving us.";
+                    }
+                    else if (flag == 3) {
+                        error_text_header = "we want to show you something.";
+                        error_text_desc = "we want to show you something.";
+                    }
+                    else if (flag == 4) {
+                        error_text_header = "welcome.";
+                        error_text_desc = "welcome, friend.";
+                    }
+                    var error_dialog = `<div class="error-dialog-panel" style="left:${Math.random() * 100}%; top: ${Math.random() * 100}%;"><div class="error-dialog-header"><span class="error-dialog-header-text">${error_text_header}</span><button class="error-dialog-exit" disabled>X</button></div><div class="error-dialog-body"><p class="error-dialog-desc">${error_text_desc}</p><div><button class="error-dialog-button"><span class="error-dialog-button-text">Cancel</span></button></div></div></div>`;
                     $(newProgressPanel).appendTo("#main-body");
                     $(error_dialog).appendTo("#main-body");
                 }
