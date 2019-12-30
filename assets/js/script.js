@@ -13,7 +13,8 @@ var width = 0,
     contact_source = ".onclick: contact",
     hover_source = ".onhover: print(socialmedia.txt)",
     hailstate_errorflag = 0,
-    delay_timer;
+    delay_timer,
+    delay_timer2;
 
 
 var timerID;
@@ -144,6 +145,7 @@ function gotoDesktop(e) {
 function showConsole(e) {
     clearInterval(objInterval);
     clearTimeout(delay_timer);
+    clearTimeout(delay_timer2);
     consoleText_counter = 0;
     $(".hailstate-panel").show();
 
@@ -386,10 +388,15 @@ function showDropdown() {
     //$(".dropdown-content").css("display", "block");
 }
 
+function delay_fuction2() {
+    showConsole();
+}
+
 function delay_fuction() {
     $('.error-dialog-panel').remove();
     $(".progress-panel").remove();
-    showConsole();
+    $("body").css("background-color", "black");
+    delay_timer2 =  setTimeout(delay_fuction2, 1500);
 }
 
 function intervalFunc() {
@@ -407,11 +414,8 @@ function intervalFunc() {
     $(".progress-panel .progress-bar").css("width", width + "px");
     $(".progress-panel .percent-text").text(parseInt(width / 2) + "%");
     if (width == 200 && hailstate_errorflag == 0) {
-        $("body").css("background-color", "black");
-        $('.error-dialog-panel').remove();
-        $(".progress-panel").remove();
         next_flag = 1;
-        delay_timer =  setTimeout(delay_fuction, 2500);
+        delay_timer =  setTimeout(delay_fuction, 2000);
     }
     if (width >= 198 && width < 200) {
         clearInterval(objInterval);
