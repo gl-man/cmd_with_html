@@ -1,0 +1,141 @@
+@font-face {
+  font-family: "custom-font";
+  src: url('../font/temp.ttf') format('truetype');
+}
+
+body {
+  font-family: custom-font !important;
+  background-color: rgb(36, 128, 129);
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.desktop-icons {
+  width: 100px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.desktop-desc {
+  font-size: 8px;
+  margin-top: 0px;
+  color: white;
+}
+
+.desktop-icon {
+  width: 50px;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  overflow-x: hidden;
+}
+
+.taskbar-icons {
+  height: 30px;
+}
+
+
+.folder {
+  border: 2px solid;
+  border-bottom-color: #535353;
+  border-right-color: #535353;
+  border-left-color: #dbdbdb;
+  border-top-color: #dbdbdb;
+  background-color: #bfbfbf;
+  font-size: 13px;
+  padding: 2px;
+  width: 30%;
+  height: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.folder ul.toolbar {
+  list-style: none;
+  padding: 2px 0;
+  margin: 0;
+}
+.folder ul.toolbar li {
+  display: inline-block;
+  padding: 0 5px;
+  font-size: 8px;
+}
+.folder .folder-inner {
+  border: 2px solid;
+  border-bottom-color: #c7c7c7;
+  border-right-color: #c7c7c7;
+  border-left-color: #808080;
+  border-top-color: #808080;
+  background-color: #fff;
+  padding: 10px;
+  height: calc(100% - 92px);
+}
+.folder .folder-inner ul.icons {
+  list-style: none;
+  padding: 2px 0;
+  margin: 0;
+}
+.folder .folder-inner ul.icons li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.folder .statusbar .left, .folder .statusbar .right {
+  border: 1px solid;
+  border-color: #888 #dadada #dadada #888;
+  display: inline-block;
+  padding: 0px 5px;
+  font-size: 11px;
+}
+.folder .statusbar {
+  display: flex;
+}
+.folder .statusbar .left {
+  width: 33%;
+}
+.folder .statusbar .right {
+  width: 66%;
+}
+
+.title {
+  background-color: rgb(0, 0, 128);
+  padding: 2px 4px 3px 4px;
+  position: relative;
+  display: flex;
+}
+.title p {
+  color: white;
+  font-size: 10px;
+  margin: 0;
+}
+.title button {
+  border: 2px solid;
+  border-bottom-color: #444;
+  border-right-color: #444;
+  border-left-color: #a6a6a6;
+  border-top-color: #a6a6a6;
+  background-color: #bfbfbf;
+  position: absolute;
+  line-height: 0;
+  padding: 1px;
+  height: 20px;
+  width: 20px;
+  top: 2px;
+}
+.title button.minimize {
+  right: 44px;
+}
+.title button.expand {
+  right: 23px;
+}
+.title button.times {
+  right: 2px;
+}

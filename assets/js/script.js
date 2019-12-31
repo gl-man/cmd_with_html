@@ -136,10 +136,7 @@ function showComputerYes(e) {
 }
 
 function gotoDesktop(e) {
-    $(".computer-container").css("display", "none");
-    $(".desktop").css("display", "block");
-    $("body").css("background-color", "rgb(36, 128, 129)");
-    $("body").css("text-align", "left");
+    window.location.href = "desktop.html";
 }
 
 function showConsole(e) {
